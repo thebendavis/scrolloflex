@@ -60,8 +60,7 @@
   "Create a set from the values in the map with keys starting with the given
   prefix.
 
-  `(params-reset {:nickname-0 \"Jon\", :nickname-1 \"Jonny\") -> #{\"Jon\", \"Jonny\"}`
-  "
+  `(params-reset {:nickname-0 \"Jon\", :nickname-1 \"Jonny\"} :nickname) -> #{\"Jon\", \"Jonny\"}`"
   [params k-prefix]
   (->> (params-remap params k-prefix k-prefix) keys (into #{})))
 
@@ -114,7 +113,7 @@
 ;; add and search contacts.
 
 (defn email-id-pairs
-  "Make a seq of name->email address pairs.
+  "Make a seq of `[name, email]` address pairs.
 
   Users with more than one email address will show up multiple times: once for
   each email address."

@@ -3074,7 +3074,7 @@ requests.</p>
                [(params kk) (params vk)]))))</pre></td></tr><tr><td class="docs"><p>Create a set from the values in the map with keys starting with the given
   prefix.</p>
 
-<p>  <code>(params-reset {:nickname-0 "Jon", :nickname-1 "Jonny") -&gt; #{"Jon", "Jonny"}</code></p>
+<p>  <code>(params-reset {:nickname-0 "Jon", :nickname-1 "Jonny"} :nickname) -&gt; #{"Jon", "Jonny"}</code></p>
 </td><td class="codes"><pre class="brush: clojure">(defn params-reset
   [params k-prefix]
   (-&gt;&gt; (params-remap params k-prefix k-prefix) keys (into #{})))</pre></td></tr><tr><td class="docs"><h2>Contact Storage</h2>
@@ -3113,7 +3113,7 @@ requests.</p>
 
 <p>These requests are used to provide the interface for mutt users to
 add and search contacts.</p>
-</td><td class="codes"></td></tr><tr><td class="docs"><p>Make a seq of name->email address pairs.</p>
+</td><td class="codes"></td></tr><tr><td class="docs"><p>Make a seq of <code>[name, email]</code> address pairs.</p>
 
 <p>  Users with more than one email address will show up multiple times: once for
   each email address.</p>
